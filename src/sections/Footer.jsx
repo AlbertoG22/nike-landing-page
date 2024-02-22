@@ -1,6 +1,6 @@
 import React from 'react';
 import { footerLogo } from '../assets/images';
-import { socialMedia } from '../constants';
+import { footerLinks, socialMedia } from '../constants';
 
 export const Footer = () => {
   return (
@@ -24,7 +24,23 @@ export const Footer = () => {
             )) }
           </div>
         </div>
+
+        <div className='flex flex-1 justify-between lg:gap-10 gap-20 flex-wrap'>
+          { footerLinks.map((section) => (
+            <div key={section}>
+              <h4 className='text-white font-montserrat text-2xl leading-normal font-medium mb-6'>{section.title}</h4>
+              <ul>
+                { section.links.map((link) => (
+                  <li key={link.name} className='mt-3 text-white-400 font-montserrat text-base leading-normal hover:text-slate-gray cursor-pointer'>
+                    <a href="">{link.name}</a>
+                  </li>
+                )) }
+              </ul>
+            </div>
+          )) }
+        </div>
       </div>
+
     </footer>
   );
 };
